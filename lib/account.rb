@@ -5,10 +5,11 @@ class Account
 
   def initialize
     @balance = DEFAULT_BALANCE
-    @tranction = Tranction.new
   end
 
-  attr_reader :balance
+  def balance 
+    @balance
+  end
 
   def deposit(amount)
     @balance += amount
