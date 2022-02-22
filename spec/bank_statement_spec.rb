@@ -16,4 +16,9 @@ describe BankStatement do
       bank_statement.withdraw(500)
       expect(bank_statement.balance).to eq(500)
     end
+
+    it 'raises an error if withdrawal amount is greater than balance' do
+      bank_statement.deposit(500)
+      expect { bank_statement.withdraw(1000) }.to raise_error "Insufficient funds"
+    end
 end
