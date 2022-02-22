@@ -1,4 +1,4 @@
-class BankStatement
+class Account
 
   DEFAULT_BALANCE = 0
 
@@ -15,7 +15,7 @@ class BankStatement
     end
 
     def withdraw(amount)
-      raise "Insufficient funds" if @balance < amount
+      raise "Insufficient funds: Please bring your account into credit" if @balance < amount
       
       @balance -= amount
     end
