@@ -1,7 +1,7 @@
 require "bank_statement"
 describe BankStatement do
   subject(:bank_statement) { described_class.new }
-    it 'can make a deposit of 1000' do
-      expect(bank_statement.deposit).to eq(1000)
+    it 'has an initial balance of 0' do
+      expect(bank_statement.balance).to eq(0)
     end
 end
