@@ -10,4 +10,10 @@ describe BankStatement do
       bank_statement.deposit(1000)
       expect(bank_statement.balance).to eq(1000)
     end
+
+    it 'can withdrawl 500 from the account' do
+      bank_statement.deposit(1000)
+      bank_statement.withdraw(500)
+      expect(bank_statement.balance).to eq(500)
+    end
 end
