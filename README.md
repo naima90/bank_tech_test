@@ -19,3 +19,19 @@ date || credit || debit || balance
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
 ```
+
+### User Stories
+
+```
+As a User
+I want to deposit money into my account
+So that I can store my money somewhere safe
+
+As a User
+I want to withdrawl money from my account
+So that I can spend my money
+
+As a User
+I want to view my account statement
+So that I can see date, amount, and balance
+```
