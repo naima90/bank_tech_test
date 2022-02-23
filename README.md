@@ -1,19 +1,3 @@
-### User Stories
-
-```
-As a User
-I want to deposit money into my account
-So that I can store my money somewhere safe
-
-As a User
-I want to withdrawl money from my account
-So that I can spend my money
-
-As a User
-I want to view my account statement
-So that I can see date, amount, and balance
-```
-
 ### To use this repo:
 
 1. clone this repo
@@ -42,7 +26,7 @@ rubocop
 irb
 ```
 
-### Once in irb 
+### run these commands in IRB
 
 ```
 1. require file by running 
@@ -64,6 +48,11 @@ account.withdraw(put amount here)
 account.print_statement
 ```
 
+### IRB Screenshot
+
+<img width="771" alt="Screenshot 2022-02-23 at 22 44 25" src="https://user-images.githubusercontent.com/62032407/155430173-bfed2541-d241-4b45-bc6d-b37f4da6d998.png">
+
+
 ### Project approach
 
 ```
@@ -78,9 +67,21 @@ I initially started with an account class and I just wanted it to simply do 3 th
 I also added a second class along the way, which knows what each statement is supposed to conttain ie. date, credit amount, debit amount and total balance after each transaction.
 ```
 
-### IRB Screenshot
+### User Stories
 
-<img width="771" alt="Screenshot 2022-02-23 at 22 44 25" src="https://user-images.githubusercontent.com/62032407/155430173-bfed2541-d241-4b45-bc6d-b37f4da6d998.png">
+```
+As a User
+I want to deposit money into my account
+So that I can store my money somewhere safe
+
+As a User
+I want to withdrawl money from my account
+So that I can spend my money
+
+As a User
+I want to view my account statement
+So that I can see date, amount, and balance
+```
 
 
 ### Requirements
