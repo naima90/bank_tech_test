@@ -25,10 +25,20 @@ describe Account do
     expect { account.withdraw(1000) }.to raise_error 'Insufficient funds: Please bring your account into credit'
   end
 
-  describe '#retrive_statement' do
+  describe '#print_statement' do
     it 'can print statement date of transaction' do
-      account.deposit(100)
-      expect(account.retrieve_statement).to include(date: date)
+      transaction = double(transaction, date: date, type: "credit", balance: "100")
+      expect(transaction.date).to eq(date)
+    end
+
+    it 'can print statement type of transaction' do
+      transaction = double(transaction, date: date, type: "credit", balance: "100")
+      expect(transaction.type).to eq("credit")
+    end
+
+    it 'can print statement balance of transaction' do
+      transaction = double(transaction, date: date, type: "credit", balance: "100")
+      expect(transaction.balance).to eq("100")
     end
   end
 end

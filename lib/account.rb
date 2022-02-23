@@ -5,7 +5,7 @@ class Account
 
   def initialize
     @balance = DEFAULT_BALANCE
-    @date = date
+    @transaction_history = []
   end
 
   def balance 
@@ -14,24 +14,31 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @transaction_history = BankStatement.new(date: @date, type: "deposit", balance: @balance)
+    transaction = BankStatement.new(date: @date, amount: amount, type: "deposit", balance: @balance)
+    @transaction_history << transaction
+    @balance
   end
 
   def withdraw(amount)
     raise 'Insufficient funds: Please bring your account into credit' if @balance < amount
     
     @balance -= amount
-    @transaction_history = BankStatement.new(date: @date, type: "withdraw", balance: @balance)
+    transaction = BankStatement.new(date: @date, amount: amount, type: "withdraw", balance: @balance)
+    @transaction_history << transaction
+    @balance
   end
   
-  def retrieve_statement
-    @hash = @transaction_history.instance_variables.each_with_object({}) { |var, hash| hash[var[1..-1].to_sym] = @transaction_history.instance_variable_get(var) }
-    @hash
-  end
-  
-  private
-  def date 
-    @date = Time.now.strftime("%d/%m/%Y") 
-  end
+  def print_statement
+    @list = "date || credit || debit || balance \n"
+    @transaction_history.each do |transaction|
+      date = transaction.date
+      credit = transaction.type == "deposit" ? transaction.amount.to_s + ".00" : ""
+      debit = transaction.type == "withdraw" ? transaction.amount.to_s + ".00": ""
+      balance = transaction.balance.to_s + ".00"
+      
+      @list += date + "|| " + credit + "|| " + debit + "|| " + balance + "\n"
+    end
 
+    puts @list
+  end
 end
