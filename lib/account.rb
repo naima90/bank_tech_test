@@ -16,7 +16,6 @@ class Account
     @balance += amount
     transaction = BankStatement.new(date: @date, amount: amount, type: "deposit", balance: @balance)
     @transaction_history << transaction
-    @balance
   end
 
   def withdraw(amount)
@@ -25,12 +24,11 @@ class Account
     @balance -= amount
     transaction = BankStatement.new(date: @date, amount: amount, type: "withdraw", balance: @balance)
     @transaction_history << transaction
-    @balance
   end
   
   def print_statement
     @list = "date || credit || debit || balance \n"
-    @transaction_history.each do |transaction|
+    @transaction_history.reverse_each do |transaction|
       date = transaction.date
       credit = transaction.type == "deposit" ? transaction.amount.to_s + ".00" : ""
       debit = transaction.type == "withdraw" ? transaction.amount.to_s + ".00": ""
