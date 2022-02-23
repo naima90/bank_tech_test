@@ -64,7 +64,39 @@ rubocop
 irb
 ```
 
-in irb
+### Once in irb 
+
 ```
+1. require file by running 
 require './lib/account'
+
+2. create an instance of account by running 
+account = Account.new
+
+3. deposit money by running 
+account.deposit(put amount here)
+
+4. check balance by running 
+account.balance
+
+5. withdraw money by running
+account.withdraw(put amount here)
+
+6. print your statement by running
+account.print_statement
 ```
+
+### Project approach
+
+```
+my approch was starting off as simple as possible and following red-green cycle of TDD and sticking to the user stries.
+
+I have started planning the project by hand writting domain model of the classes and their methods as well as user stories.
+
+I started off with writting tests first and doing the minimum to pass them and refactoring after.
+
+I initially started with an account class and I just wanted it to simply do 3 things (1) be able to deposit money into account, (2) be able to withdraw money and (3) be able to print statements.
+
+I also added a second class along the way, which knows what each statement is supposed to conttain ie. date, credit amount, debit amount and total balance after each transaction.
+```
+
