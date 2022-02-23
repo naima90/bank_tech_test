@@ -1,9 +1,10 @@
 require 'bank_statement'
 
 describe BankStatement do
+  let(:date) { Time.now.strftime("%d/%m/%Y") }
   subject(:bank_statement) { described_class.new }
   it 'can can print the date of the transaction' do
-    expect(bank_statement.print_statement).to include("22/02/2022")
+    expect(bank_statement.print_statement).to include(date)
   end
 
   it 'can print the credit of the transaction' do

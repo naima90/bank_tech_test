@@ -3,6 +3,7 @@
 require 'account'
 describe Account do
   subject(:account) { described_class.new }
+  let(:date) { Time.now.strftime("%d/%m/%Y") }
 
   it 'has an initial balance of 0' do
     expect(account.balance).to eq(0)
@@ -22,5 +23,12 @@ describe Account do
   it 'raises an error if withdrawal amount is greater than balance' do
     account.deposit(500)
     expect { account.withdraw(1000) }.to raise_error 'Insufficient funds: Please bring your account into credit'
+  end
+
+  describe '#retrive_statement' do
+    it 'can print statement date of transaction' do
+      account.deposit(100)
+      expect(account.retrieve_statement).to include(date: date)
+    end
   end
 end

@@ -9,6 +9,6 @@ class BankStatement
   end
 
   def print_statement
-    "#{@date} || #{@credit} || #{@debit} || #{@balance}"
+    "date: #{@date} || credit: #{@credit} || debit: #{@debit} || balance: #{@balance} \n"
   end
 end
