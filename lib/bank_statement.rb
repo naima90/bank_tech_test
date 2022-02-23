@@ -1,10 +1,8 @@
-require 'date'
 class BankStatement
 
-  def initialize(credit: nil, debit: nil, balance: nil)
-    @date = Date.today.strftime('%d/%m/%Y')
-    @credit = credit
-    @debit = debit
+  def initialize(date: @date, type: "credit", balance: nil)
+    @date = Time.now.strftime("%d/%m/%Y") 
+    @@type = type
     @balance = balance
   end
 

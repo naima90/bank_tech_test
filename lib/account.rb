@@ -6,7 +6,6 @@ class Account
   def initialize
     @balance = DEFAULT_BALANCE
     @date = date
-    @transaction_history = {date: date, type: "credit", balance: nil}
   end
 
   def balance 
@@ -15,20 +14,19 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @transaction_history[:balance] = @balance
+    @transaction_history = BankStatement.new(date: @date, type: "deposit", balance: @balance)
   end
 
   def withdraw(amount)
     raise 'Insufficient funds: Please bring your account into credit' if @balance < amount
     
     @balance -= amount
-    @transaction_history[:balance] = @balance
+    @transaction_history = BankStatement.new(date: @date, type: "withdraw", balance: @balance)
   end
-
-
   
   def retrieve_statement
-    @transaction_history
+    @hash = @transaction_history.instance_variables.each_with_object({}) { |var, hash| hash[var[1..-1].to_sym] = @transaction_history.instance_variable_get(var) }
+    @hash
   end
   
   private
