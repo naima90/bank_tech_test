@@ -1,3 +1,4 @@
+require './lib/bank_statement'
 # frozen_string_literal: true
 
 class Account
@@ -12,7 +13,7 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    transaction = BankStatement.new(date: @date, amount: amount, type: 'deposit', balance: @balance)
+    transaction = BankStatement.new(date: Time.now.strftime('%d/%m/%Y'), amount: amount, type: 'deposit', balance: @balance)
     @transaction_history << transaction
   end
 
@@ -20,7 +21,7 @@ class Account
     raise 'Insufficient funds: Please bring your account into credit' if @balance < amount
 
     @balance -= amount
-    transaction = BankStatement.new(date: @date, amount: amount, type: 'withdraw', balance: @balance)
+    transaction = BankStatement.new(date: Time.now.strftime('%d/%m/%Y'), amount: amount, type: 'withdraw', balance: @balance)
     @transaction_history << transaction
   end
 

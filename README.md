@@ -35,3 +35,36 @@ As a User
 I want to view my account statement
 So that I can see date, amount, and balance
 ```
+
+### To use this repo:
+
+1. clone this repo
+
+```
+git clone <paste url here>
+```
+
+2. install the dependencies 
+
+```
+bundle install
+```
+
+3. Run tests
+
+```
+rspec
+
+rubocop
+```
+
+4. Run project by launching irb
+
+```
+irb
+```
+
+in irb
+```
+require './lib/account'
+```
