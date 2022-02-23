@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 require 'account'
 
 describe Account do
   subject(:account) { described_class.new }
-  let(:date) { Time.now.strftime("%d/%m/%Y") }
+  let(:date) { Time.now.strftime('%d/%m/%Y') }
 
   it 'has an initial balance of 0' do
     expect(account.balance).to eq(0)
@@ -27,18 +28,18 @@ describe Account do
 
   describe '#print_statement' do
     it 'can print statement date of transaction' do
-      transaction = double(transaction, date: date, type: "credit", balance: "100")
+      transaction = double(transaction, date: date, type: 'credit', balance: '100')
       expect(transaction.date).to eq(date)
     end
 
     it 'can print statement type of transaction' do
-      transaction = double(transaction, date: date, type: "credit", balance: "100")
-      expect(transaction.type).to eq("credit")
+      transaction = double(transaction, date: date, type: 'credit', balance: '100')
+      expect(transaction.type).to eq('credit')
     end
 
     it 'can print statement balance of transaction' do
-      transaction = double(transaction, date: date, type: "credit", balance: "100")
-      expect(transaction.balance).to eq("100")
+      transaction = double(transaction, date: date, type: 'credit', balance: '100')
+      expect(transaction.balance).to eq('100')
     end
   end
 end
