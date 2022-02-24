@@ -3,7 +3,7 @@
 class BankStatement
   attr_reader :date, :type, :balance, :amount
 
-  def initialize(date: Time.now.strftime('%d/%m/%Y'), type: 'credit', amount: nil, balance: nil)
+  def initialize(date: Time.now.strftime('%d/%m/%Y'), type: nil, amount: nil, balance: nil)
     @date = date
     @type = type
     @balance = balance
