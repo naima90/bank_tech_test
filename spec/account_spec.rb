@@ -37,9 +37,14 @@ describe Account do
       expect(transaction.type).to eq('credit')
     end
 
-    it 'can print statement balance of transaction' do
-      transaction = double(transaction, date: date, type: 'credit', balance: '100')
-      expect(transaction.balance).to eq('100')
+    it 'can use bank statement class with :new method' do
+      statement_double = double("statement")
+      allow(statement_double).to receive :new
+
+      account = Account.new(statement: statement_double)
+
+      expect(statement_double).to receive(:new)
+      statement_double.new(date: date, type: nil, amount: nil, balance: nil)
     end
   end
 end
